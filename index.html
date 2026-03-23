@@ -3,334 +3,519 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abhijith Shaju — Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta
+    name="description"
+    content="Portfolio of Abhijith Shaju, a computer science student building desktop tools, web platforms, and AI-assisted products."
+  />
+  <title>Abhijith Shaju | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- ░░ MOBILE NAV ░░ -->
-  <header class="mobile-header" role="banner">
-    <span class="mobile-logo">AS</span>
-    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-      <ul>
-        <li><a href="#about"   class="nav-link">About</a></li>
-        <li><a href="#skills"  class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#achievements" class="nav-link">Achievements</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="layout">
-
-    <!-- ░░ LEFT PANEL (desktop fixed sidebar) ░░ -->
-    <aside class="sidebar" aria-label="Sidebar navigation">
-      <div class="sidebar-inner">
-
-        <div class="sidebar-top">
-          <div class="monogram" aria-hidden="true">AS</div>
-          <h1 class="sidebar-name">Abhijith<br>Shaju</h1>
-          <p class="sidebar-tagline">B.Tech Computer Science<br>&amp; Engineering Student</p>
-
-          <nav class="sidebar-nav" aria-label="Section navigation">
-            <ul>
-              <li><a href="#about"        class="nav-link" data-section="about">About</a></li>
-              <li><a href="#skills"       class="nav-link" data-section="skills">Skills</a></li>
-              <li><a href="#projects"     class="nav-link" data-section="projects">Projects</a></li>
-              <li><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
-              <li><a href="#education"    class="nav-link" data-section="education">Education</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        <div class="sidebar-bottom">
-          <ul class="social-links" aria-label="Social links">
-            <li>
-              <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://linkedin.com/in/abhijith-shaju" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href="mailto:abhijithshaju2004@gmail.com" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-                Email
-              </a>
-            </li>
-          </ul>
-          <p class="sidebar-credit">Crafted with ☕</p>
-        </div>
-
+  <div class="page-shell">
+    <header class="mobile-header" role="banner">
+      <div class="logo-actions">
+        <a class="mobile-logo" href="#about" aria-label="Go to top">AS</a>
+        <a class="resume-button" href="AbhijithShajuCV.pdf" download="AbhijithShajuCV.pdf" aria-label="Download CV as PDF">Resume</a>
       </div>
-    </aside>
+      <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#certificates" class="nav-link">Certificates</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- ░░ MAIN CONTENT ░░ -->
-    <main class="content" id="main-content">
-
-      <!-- HERO / ABOUT -->
-      <section id="about" class="section hero-section" aria-labelledby="hero-heading">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h2 id="hero-heading" class="hero-greeting">Hello, I'm</h2>
-            <h1 class="hero-name">Abhijith<br><em>Shaju</em></h1>
-            <p class="hero-tagline">B.Tech Computer Science &amp; Engineering Student</p>
-            <p class="hero-bio">
-              I build purposeful software — from desktop system utilities with Win32 and multithreading, 
-              to full-stack web platforms and AI-integrated applications. Currently pursuing my degree at 
-              Lovely Professional University, I'm driven by clean architecture, open-source contribution, 
-              and solving real problems with code.
-            </p>
-            <div class="hero-cta">
-              <a href="#projects" class="btn-primary">View Projects</a>
-              <a href="mailto:abhijithshaju2004@gmail.com" class="btn-ghost">Get in Touch</a>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Sidebar navigation">
+        <div class="sidebar-inner">
+          <div class="sidebar-top">
+            <div class="logo-actions">
+              <a class="monogram" href="#about" aria-label="Go to top">AS</a>
+              <a class="resume-button" href="AbhijithShajuCV.pdf" download="AbhijithShajuCV.pdf" aria-label="Download CV as PDF">Resume</a>
             </div>
+            <h1 class="sidebar-name">Abhijith<br />Shaju</h1>
+            <p class="sidebar-tagline">Computer Science Engineer in progress. Systems-minded builder. Product-focused developer.</p>
+
+            <div class="status-panel">
+              <span class="status-dot" aria-hidden="true"></span>
+              Open to internships, collaboration, and product engineering roles.
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Section navigation">
+              <ul>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#certificates" class="nav-link" data-section="certificates">Certificates</a></li>
+                <li><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
+                <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+              </ul>
+            </nav>
           </div>
-          <div class="hero-image-container">
-            <div class="hero-image-backdrop">
-              <div class="hero-image-container">
-                <img src="./Me.jpg" alt="" srcset="">
-              </div>
-            </div>
+
+          <div class="sidebar-bottom">
+            <ul class="social-links" aria-label="Social links">
+              <li>
+                <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span>
+                  <span aria-hidden="true">Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/abhijith-shaju/" target="_blank" rel="noopener noreferrer">
+                  <span>LinkedIn</span>
+                  <span aria-hidden="true">Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:abhijithshaju2004@gmail.com">
+                  <span>Email</span>
+                  <span aria-hidden="true">Direct</span>
+                </a>
+              </li>
+            </ul>
+            <p class="sidebar-credit">Built with plain HTML, CSS, and JavaScript.</p>
           </div>
         </div>
-      </section>
+      </aside>
 
-      <!-- SKILLS -->
-      <section id="skills" class="section" aria-labelledby="skills-heading">
-        <div class="section-label" aria-hidden="true">02 / Skills</div>
-        <h2 id="skills-heading" class="section-title">Technical Arsenal</h2>
-        <div class="skills-grid">
-
-          <div class="skill-card" data-category="languages">
-            <div class="skill-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3 class="skill-card-title">Languages</h3>
-            <ul class="skill-tags">
-              <li>C</li><li>C++</li><li>Java</li><li>Python</li><li>JavaScript</li>
-            </ul>
-          </div>
-
-          <div class="skill-card" data-category="frameworks">
-            <div class="skill-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            </div>
-            <h3 class="skill-card-title">Frameworks</h3>
-            <ul class="skill-tags">
-              <li>HTML &amp; CSS</li><li>Tailwind CSS</li><li>React</li><li>ExpressJS</li>
-            </ul>
-          </div>
-
-          <div class="skill-card" data-category="tools">
-            <div class="skill-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3 class="skill-card-title">Tools &amp; Platforms</h3>
-            <ul class="skill-tags">
-              <li>MySQL</li><li>MongoDB</li><li>Google Cloud</li><li>Git / GitHub</li>
-            </ul>
-          </div>
-
-          <div class="skill-card" data-category="soft">
-            <div class="skill-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            </div>
-            <h3 class="skill-card-title">Soft Skills</h3>
-            <ul class="skill-tags">
-              <li>Problem-Solving</li><li>Time Management</li><li>Adaptability</li><li>Team Collaboration</li>
-            </ul>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="section" aria-labelledby="projects-heading">
-        <div class="section-label" aria-hidden="true">03 / Projects</div>
-        <h2 id="projects-heading" class="section-title">Selected Work</h2>
-        <div class="projects-list">
-
-          <article class="project-card" tabindex="0">
-            <div class="project-number" aria-hidden="true">01</div>
-            <div class="project-body">
-              <div class="project-header">
-                <h3 class="project-title">Display Zone Manager</h3>
-                <div class="project-links">
-                  <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  </a>
-                </div>
-              </div>
-              <p class="project-desc">
-                A Windows desktop tool for custom screen-tiling layouts. Built with Win32 API and multithreading,
-                it lets users define and manage display zones for efficient multi-window workflows.
-                Earned 26+ GitHub stars as an open-source utility.
+      <main class="content" id="main-content">
+        <section id="about" class="section hero-section visible" aria-labelledby="hero-heading">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="section-kicker">Portfolio / 2026</p>
+              <h2 id="hero-heading" class="hero-heading">
+                Building clean software experiences across desktop, web, and AI-assisted products.
+              </h2>
+              <p class="hero-lede">
+                I'm Abhijith Shaju, a B.Tech Computer Science and Engineering student at Lovely Professional University with a bias for practical systems, reliable UX, and projects that solve specific problems well.
               </p>
-              <ul class="project-tags">
-                <li>C++</li><li>Win32 API</li><li>Multithreading</li><li>Open Source</li>
-              </ul>
-              <div class="project-accent" aria-hidden="true"></div>
-            </div>
-          </article>
 
-          <article class="project-card" tabindex="0">
-            <div class="project-number" aria-hidden="true">02</div>
-            <div class="project-body">
-              <div class="project-header">
-                <h3 class="project-title">ShelfWise</h3>
-                <div class="project-links">
-                  <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  </a>
-                </div>
+              <div class="hero-metrics" aria-label="Highlights">
+                <article class="metric-card">
+                  <span class="metric-value">4+</span>
+                  <span class="metric-label">featured builds shipped</span>
+                </article>
+                <article class="metric-card">
+                  <span class="metric-value">26+</span>
+                  <span class="metric-label">GitHub stars on open source work</span>
+                </article>
+                <article class="metric-card">
+                  <span class="metric-value">Top 10</span>
+                  <span class="metric-label">ARENA Web-A-Thon finish</span>
+                </article>
               </div>
-              <p class="project-desc">
-                A full-stack library management platform integrating the Google Books API for real-time 
-                book discovery. Built with a React frontend and Express backend, it enables users to 
-                search, track, and manage their personal reading collections.
-              </p>
-              <ul class="project-tags">
-                <li>React</li><li>ExpressJS</li><li>Google Books API</li><li>MongoDB</li>
-              </ul>
-              <div class="project-accent" aria-hidden="true"></div>
-            </div>
-          </article>
 
-          <article class="project-card" tabindex="0">
-            <div class="project-number" aria-hidden="true">03</div>
-            <div class="project-body">
-              <div class="project-header">
-                <h3 class="project-title">Smart Directory Manager</h3>
-                <div class="project-links">
-                  <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  </a>
-                </div>
+              <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-ghost">Get in Touch</a>
               </div>
-              <p class="project-desc">
-                A desktop utility for intelligent directory organisation and duplicate file detection.
-                Uses MD5 hashing to identify and manage duplicate files, offering automated sorting 
-                rules to keep file systems clean and structured.
-              </p>
-              <ul class="project-tags">
-                <li>Python</li><li>MD5 Hashing</li><li>File I/O</li><li>Desktop App</li>
-              </ul>
-              <div class="project-accent" aria-hidden="true"></div>
             </div>
-          </article>
 
-          <article class="project-card" tabindex="0">
-            <div class="project-number" aria-hidden="true">04</div>
-            <div class="project-body">
-              <div class="project-header">
-                <h3 class="project-title">FitLife Planner &amp; FitBot</h3>
-                <div class="project-links">
-                  <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                  </a>
+            <div class="hero-aside">
+              <figure class="portrait-card">
+                <div class="portrait-frame">
+                  <img src="./Me.jpg" class="hero-profile-img" alt="Portrait of Abhijith Shaju" loading="eager" />
                 </div>
+                <figcaption class="portrait-caption">
+                  Student developer focused on C++, Python, JavaScript, and product-minded engineering.
+                </figcaption>
+              </figure>
+
+              <div class="spotlight-card">
+                <p class="spotlight-label">Current focus</p>
+                <ul class="spotlight-list">
+                  <li>System utilities with strong native performance</li>
+                  <li>Full-stack web apps with clean interaction design</li>
+                  <li>AI integrations that improve real workflows</li>
+                </ul>
               </div>
-              <p class="project-desc">
-                A workout tracking website with an integrated AI fitness assistant, FitBot, powered 
-                by the Google Gemini API. Features custom interactive charts for progress visualisation,
-                personalised workout plans, and real-time AI coaching.
-              </p>
-              <ul class="project-tags">
-                <li>JavaScript</li><li>Google Gemini API</li><li>Charts</li><li>HTML &amp; CSS</li>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+          <div class="section-label">01 / Skills</div>
+          <h2 id="skills-heading" class="section-title">Technical Toolkit</h2>
+          <p class="section-intro">
+            A balanced stack across core programming, product interfaces, backend services, and the day-to-day tooling needed to ship maintainable work.
+          </p>
+
+          <div class="skills-grid">
+            <article class="skill-card">
+              <p class="skill-index">01</p>
+              <h3 class="skill-card-title">Languages</h3>
+              <p class="skill-card-copy">Comfortable moving between lower-level logic and rapid prototyping.</p>
+              <ul class="skill-tags">
+                <li>C</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>JavaScript</li>
               </ul>
-              <div class="project-accent" aria-hidden="true"></div>
-            </div>
-          </article>
+            </article>
 
-        </div>
-      </section>
+            <article class="skill-card">
+              <p class="skill-index">02</p>
+              <h3 class="skill-card-title">Frontend & Web</h3>
+              <p class="skill-card-copy">Building interfaces that are responsive, readable, and structured with intent.</p>
+              <ul class="skill-tags">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>React</li>
+                <li>Tailwind CSS</li>
+                <li>Vanilla JS</li>
+              </ul>
+            </article>
 
-      <!-- ACHIEVEMENTS -->
-      <section id="achievements" class="section" aria-labelledby="achievements-heading">
-        <div class="section-label" aria-hidden="true">04 / Achievements</div>
-        <h2 id="achievements-heading" class="section-title">Milestones</h2>
-        <div class="achievements-grid">
+            <article class="skill-card">
+              <p class="skill-index">03</p>
+              <h3 class="skill-card-title">Backend & Data</h3>
+              <p class="skill-card-copy">Integrating APIs, structuring data, and building useful application flows.</p>
+              <ul class="skill-tags">
+                <li>Express.js</li>
+                <li>MongoDB</li>
+                <li>MySQL</li>
+                <li>REST APIs</li>
+                <li>Google Cloud</li>
+              </ul>
+            </article>
 
-          <div class="achievement-card">
-            <div class="achievement-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <div class="achievement-content">
-              <h3 class="achievement-title">Open-Source Author</h3>
+            <article class="skill-card">
+              <p class="skill-index">04</p>
+              <h3 class="skill-card-title">Engineering Habits</h3>
+              <p class="skill-card-copy">A practical mindset around debugging, iteration speed, and working with others.</p>
+              <ul class="skill-tags">
+                <li>Git / GitHub</li>
+                <li>Problem Solving</li>
+                <li>Adaptability</li>
+                <li>Team Collaboration</li>
+                <li>Time Management</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+          <div class="section-label">02 / Projects</div>
+          <h2 id="projects-heading" class="section-title">Selected Work</h2>
+          <p class="section-intro">
+            The portfolio is strongest when each project has a clear purpose, technical depth, and a usable outcome. These are the pieces that best represent that.
+          </p>
+
+          <div class="projects-list">
+            <article class="project-card" tabindex="0">
+              <div class="project-topline">
+                <span class="project-number">01</span>
+                <span class="project-year">Desktop utility</span>
+              </div>
+              <div class="project-body">
+                <div class="project-header">
+                  <div>
+                    <h3 class="project-title">Display Zone Manager</h3>
+                    <p class="project-subtitle">Custom screen-tiling utility for efficient multi-window workflows.</p>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Abhijith-Shaju/DisplayPartitioner" target="_blank" rel="noopener noreferrer">View Repository</a>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  Built with C++, Win32 API, and multithreading to let users define custom display zones and manage dense desktop workspaces more effectively. The project also gained traction as an open-source utility.
+                </p>
+                <ul class="project-tags">
+                  <li>C++</li>
+                  <li>Win32 API</li>
+                  <li>Multithreading</li>
+                  <li>Open Source</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card" tabindex="0">
+              <div class="project-topline">
+                <span class="project-number">02</span>
+                <span class="project-year">Full stack</span>
+              </div>
+              <div class="project-body">
+                <div class="project-header">
+                  <div>
+                    <h3 class="project-title">ShelfWise</h3>
+                    <p class="project-subtitle">Library management and discovery platform powered by external book data.</p>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Abhijith-Shaju/ShelfWise" target="_blank" rel="noopener noreferrer">View Repository</a>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  A React and Express-based application that integrates the Google Books API for search and discovery while helping users manage personal reading collections with cleaner tracking and retrieval flows.
+                </p>
+                <ul class="project-tags">
+                  <li>React</li>
+                  <li>Express.js</li>
+                  <li>Google Books API</li>
+                  <li>MongoDB</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card" tabindex="0">
+              <div class="project-topline">
+                <span class="project-number">03</span>
+                <span class="project-year">Automation</span>
+              </div>
+              <div class="project-body">
+                <div class="project-header">
+                  <div>
+                    <h3 class="project-title">Smart Directory Manager</h3>
+                    <p class="project-subtitle">File organization utility focused on duplicate detection and cleanup.</p>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Abhijith-Shaju/Smart_Directory_Management_System" target="_blank" rel="noopener noreferrer">View Repository</a>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  A Python-based desktop helper for keeping file systems clean, using hashing and automated sorting rules to detect duplicates and organize directories with less manual cleanup work.
+                </p>
+                <ul class="project-tags">
+                  <li>Python</li>
+                  <li>MD5 Hashing</li>
+                  <li>File I/O</li>
+                  <li>Desktop App</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-card" tabindex="0">
+              <div class="project-topline">
+                <span class="project-number">04</span>
+                <span class="project-year">AI-assisted web app</span>
+              </div>
+              <div class="project-body">
+                <div class="project-header">
+                  <div>
+                    <h3 class="project-title">FitLife Planner &amp; FitBot</h3>
+                    <p class="project-subtitle">Workout planning product with progress tracking and conversational support.</p>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Abhijith-Shaju/Workout-and-Diet-Planner" target="_blank" rel="noopener noreferrer">View Repository</a>
+                  </div>
+                </div>
+                <p class="project-desc">
+                  Combines structured workout planning, interactive charts, and a Gemini-powered assistant to guide users with tailored plans, progress visibility, and real-time AI-backed fitness support.
+                </p>
+                <ul class="project-tags">
+                  <li>JavaScript</li>
+                  <li>Gemini API</li>
+                  <li>Charts</li>
+                  <li>HTML / CSS</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="certificates" class="section" aria-labelledby="certificates-heading">
+          <div class="section-label">03 / Certificates</div>
+          <h2 id="certificates-heading" class="section-title">Certificates</h2>
+          <p class="section-intro">
+            Course completions and technical certifications that strengthened my fundamentals across programming, networks, systems, and full-stack development.
+          </p>
+          <div class="certificates-grid">
+            <button class="certificate-card" type="button" data-certificate-title="C Programming" data-certificate-file="Certificates/C.pdf">
+              <span class="certificate-index">01</span>
+              <strong>C Programming</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="C++ Programming" data-certificate-file="Certificates/C++.pdf">
+              <span class="certificate-index">02</span>
+              <strong>C++ Programming</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="Java Programming" data-certificate-file="Certificates/JAVA.pdf">
+              <span class="certificate-index">03</span>
+              <strong>Java Programming</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="Data Structures and Algorithms" data-certificate-file="Certificates/DSA.pdf">
+              <span class="certificate-index">04</span>
+              <strong>Data Structures and Algorithms</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="MERN Stack" data-certificate-file="Certificates/MERN_Stack.pdf">
+              <span class="certificate-index">05</span>
+              <strong>MERN Stack</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="Hardware and Operating Systems" data-certificate-file="Certificates/hardware_operating_system.pdf">
+              <span class="certificate-index">06</span>
+              <strong>Hardware and Operating Systems</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="Fundamentals of Network Communication" data-certificate-file="Certificates/Fundamentals_of_Network_Communication.pdf">
+              <span class="certificate-index">07</span>
+              <strong>Fundamentals of Network Communication</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="Packet Switching Networks and Algorithms" data-certificate-file="Certificates/Packet_Switching_Networks_and_Algorithms.pdf">
+              <span class="certificate-index">08</span>
+              <strong>Packet Switching Networks and Algorithms</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="Peer-to-Peer Protocols and Local Area Networks" data-certificate-file="Certificates/Peer-to-Peer_Protocols_and_Local_Area_Networks.pdf">
+              <span class="certificate-index">09</span>
+              <strong>Peer-to-Peer Protocols and Local Area Networks</strong>
+              <span>Open certificate</span>
+            </button>
+            <button class="certificate-card" type="button" data-certificate-title="The Bits and Bytes of Computer Networking" data-certificate-file="Certificates/The_Bits_and_Bytes_of_Computer_Networking.pdf">
+              <span class="certificate-index">10</span>
+              <strong>The Bits and Bytes of Computer Networking</strong>
+              <span>Open certificate</span>
+            </button>
+          </div>
+        </section>
+
+        <section id="achievements" class="section" aria-labelledby="achievements-heading">
+          <div class="section-label">04 / Achievements</div>
+          <h2 id="achievements-heading" class="section-title">Milestones</h2>
+          <div class="achievements-grid">
+            <article class="achievement-card">
+              <p class="achievement-eyebrow">Open source</p>
+              <h3 class="achievement-title">Built work people actually used</h3>
               <p class="achievement-desc">
-                Published <strong>Display Zone Manager</strong> as an open-source project, 
-                accumulating <strong>26+ GitHub stars</strong> from the developer community.
+                Display Zone Manager moved beyond coursework into a public utility, collecting 26+ GitHub stars and validating the value of small, practical system tools.
               </p>
-            </div>
-          </div>
+            </article>
 
-          <div class="achievement-card">
-            <div class="achievement-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
-            </div>
-            <div class="achievement-content">
-              <h3 class="achievement-title">Top 10 Finalist — ARENA</h3>
+            <article class="achievement-card">
+              <p class="achievement-eyebrow">Competition</p>
+              <h3 class="achievement-title">Top 10 finalist at ARENA Web-A-Thon</h3>
               <p class="achievement-desc">
-                Ranked in the <strong>Top 10</strong> at the ARENA Web-A-Thon hackathon, 
-                competing against peers in a web development challenge.
+                Reached the top bracket in a web development hackathon environment, balancing speed, implementation quality, and product thinking under time pressure.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="education" class="section" aria-labelledby="education-heading">
+          <div class="section-label">05 / Education</div>
+          <h2 id="education-heading" class="section-title">Education</h2>
+          <article class="education-card">
+            <div class="edu-track" aria-hidden="true"></div>
+            <div class="edu-body">
+              <div class="edu-header">
+                <div>
+                  <h3 class="edu-degree">B.Tech in Computer Science and Engineering</h3>
+                  <p class="edu-school">Lovely Professional University, Punjab</p>
+                </div>
+                <div class="edu-badges">
+                  <span class="edu-badge">Current CGPA: 8.13</span>
+                  <span class="edu-badge">Systems + web focus</span>
+                </div>
+              </div>
+              <p class="edu-desc">
+                Building a foundation across data structures, algorithms, operating systems, full-stack development, and system-level programming while staying active through personal projects and open-source work.
               </p>
             </div>
+          </article>
+        </section>
+
+        <section id="contact" class="section" aria-labelledby="contact-heading">
+          <div class="section-label">06 / Contact</div>
+          <h2 id="contact-heading" class="section-title">Let's Build Something Useful</h2>
+          <p class="section-intro">
+            If the role needs someone who can move between native tooling, product UI, and practical implementation details, reach out.
+          </p>
+
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:abhijithshaju2004@gmail.com">
+              <span class="contact-label">Email</span>
+              <strong>abhijithshaju2004@gmail.com</strong>
+            </a>
+            <a class="contact-card" href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">GitHub</span>
+              <strong>github.com/Abhijith-Shaju</strong>
+            </a>
+            <a class="contact-card" href="https://www.linkedin.com/in/abhijith-shaju/" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">LinkedIn</span>
+              <strong>linkedin.com/in/abhijith-shaju</strong>
+            </a>
           </div>
+        </section>
 
-        </div>
-      </section>
+        <footer class="site-footer" role="contentinfo">
+          <div class="footer-panel">
+            <div class="footer-intro">
+              <p class="footer-kicker">End Note</p>
+              <h2 class="footer-title">Built to feel focused, readable, and direct.</h2>
+              <p class="footer-copy">
+                This portfolio reflects how I like software to work: clear structure, practical decisions, and enough polish to make the experience feel considered.
+              </p>
+            </div>
 
-      <!-- EDUCATION -->
-      <section id="education" class="section" aria-labelledby="education-heading">
-        <div class="section-label" aria-hidden="true">05 / Education</div>
-        <h2 id="education-heading" class="section-title">Education</h2>
-        <div class="education-card">
-          <div class="edu-timeline-dot" aria-hidden="true"></div>
-          <div class="edu-body">
-            <div class="edu-header">
-              <div>
-                <h3 class="edu-degree">B.Tech Computer Science &amp; Engineering</h3>
-                <p class="edu-school">Lovely Professional University, Punjab</p>
+            <div class="footer-columns">
+              <div class="footer-column">
+                <p class="footer-label">Navigate</p>
+                <div class="footer-links">
+                  <a href="#about">About</a>
+                  <a href="#projects">Projects</a>
+                  <a href="#contact">Contact</a>
+                </div>
               </div>
-              <div class="edu-meta">
-                <span class="edu-cgpa">CGPA <strong>8.13</strong></span>
+
+              <div class="footer-column">
+                <p class="footer-label">Connect</p>
+                <div class="footer-links">
+                  <a href="mailto:abhijithshaju2004@gmail.com">Email</a>
+                  <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://www.linkedin.com/in/abhijith-shaju/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
               </div>
             </div>
-            <p class="edu-desc">
-              Pursuing a four-year undergraduate programme in Computer Science, building 
-              a foundation across algorithms, data structures, operating systems, web technologies, 
-              and system-level programming — complemented by an active project portfolio 
-              and open-source work.
-            </p>
           </div>
-        </div>
-      </section>
 
-      <!-- FOOTER -->
-      <footer class="site-footer" role="contentinfo">
-        <div class="footer-links">
-          <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/abhijith-shaju" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:abhijithshaju2004@gmail.com">Email</a>
-        </div>
-        <p>Designed &amp; built by <strong>Abhijith Shaju</strong></p>
-        <p class="footer-sub">&copy; 2026 Abhijith Shaju. Plain HTML · Vanilla CSS · JavaScript</p>
-      </footer>
+          <div class="footer-meta">
+            <p>Designed and built by <strong>Abhijith Shaju</strong></p>
+            <p class="footer-sub">Thanks for reading through the work. If something here feels relevant, let's talk.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
 
-    </main>
+  <div class="certificate-lightbox" aria-hidden="true" hidden>
+    <div class="certificate-lightbox__backdrop" data-lightbox-close></div>
+    <div class="certificate-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="certificate-lightbox-title">
+      <div class="certificate-lightbox__header">
+        <div>
+          <p class="certificate-lightbox__eyebrow">Certificate viewer</p>
+          <h3 id="certificate-lightbox-title">Certificate</h3>
+        </div>
+        <div class="certificate-lightbox__actions">
+          <a class="certificate-lightbox__download" href="#" target="_blank" rel="noopener noreferrer" download>Download PDF</a>
+          <button class="certificate-lightbox__close" type="button" aria-label="Close certificate viewer" data-lightbox-close>Close</button>
+        </div>
+      </div>
+      <div class="certificate-lightbox__body">
+        <iframe class="certificate-lightbox__frame" title="Certificate preview" src="" loading="lazy"></iframe>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
