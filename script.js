@@ -12,6 +12,16 @@ const certLightbox     = document.querySelector(".certificate-lightbox");
 const certTitle        = document.querySelector("#certificate-lightbox-title");
 const certFrame        = document.querySelector(".certificate-lightbox__frame");
 const certDownload     = document.querySelector(".certificate-lightbox__download");
+const heroSection      = document.querySelector(".hero-section");
+const heroCopy         = document.querySelector(".hero-copy");
+const heroAside        = document.querySelector(".hero-aside");
+const portraitCard     = document.querySelector(".portrait-card");
+const spotlightCard    = document.querySelector(".spotlight-card");
+const footerPanel      = document.querySelector(".footer-panel");
+const footerHero       = document.querySelector(".footer-hero");
+const footerBand       = document.querySelector(".footer-band");
+const footerColumns    = document.querySelector(".footer-columns");
+const footerMark       = document.querySelector(".footer-panel-mark");
  
 let prevBodyOverflow  = "";
 let lightboxTriggerEl = null;
@@ -106,61 +116,6 @@ document.querySelectorAll(".project-card").forEach(card => {
 // IMPROVEMENT 1 — Typed hero animation
 // ═══════════════════════════════════════════════════════════════════════════════
  
-const PHRASES = [
-  "desktop, web, and AI-assisted products.",
-  "native utilities that people rely on.",
-  "full-stack apps with clean interaction.",
-  "systems that solve specific problems well.",
-];
- 
-function initTyped() {
-  const heading = document.querySelector("#hero-heading");
-  if (!heading) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    // Static fallback for reduced motion
-    const typedEl = heading.querySelector(".typed-phrase");
-    if (typedEl) typedEl.textContent = PHRASES[0];
-    return;
-  }
- 
-  const typedEl  = heading.querySelector(".typed-phrase");
-  const cursorEl = heading.querySelector(".typed-cursor");
-  if (!typedEl || !cursorEl) return;
- 
-  let pi = 0, ci = 0, deleting = false;
- 
-  function tick() {
-    const phrase = PHRASES[pi];
-    if (!deleting) {
-      ci++;
-      typedEl.textContent = phrase.slice(0, ci);
-      if (ci === phrase.length) {
-        deleting = true;
-        cursorEl.classList.add("typed-cursor--paused");
-        setTimeout(() => {
-          cursorEl.classList.remove("typed-cursor--paused");
-          setTimeout(tick, 180);
-        }, 2200);
-        return;
-      }
-      setTimeout(tick, 52);
-    } else {
-      ci--;
-      typedEl.textContent = phrase.slice(0, ci);
-      if (ci === 0) {
-        deleting = false;
-        pi = (pi + 1) % PHRASES.length;
-        setTimeout(tick, 380);
-        return;
-      }
-      setTimeout(tick, 22);
-    }
-  }
-  setTimeout(tick, 800);
-}
- 
-initTyped();
- 
 // ═══════════════════════════════════════════════════════════════════════════════
 // IMPROVEMENT 2 — Count-up metrics
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -203,6 +158,52 @@ initCountUp();
 // IMPROVEMENT 3 — Lightbox with focus trap + focus restoration
 // ═══════════════════════════════════════════════════════════════════════════════
  
+function setParallaxVar(el, name, value) {
+  if (el) el.style.setProperty(name, `${value.toFixed(2)}px`);
+}
+
+function initParallax() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!heroSection && !footerPanel) return;
+
+  let ticking = false;
+
+  function updateParallax() {
+    ticking = false;
+
+    if (heroSection) {
+      const rect = heroSection.getBoundingClientRect();
+      const travel = Math.max(0, Math.min(72, -rect.top * 0.09));
+      setParallaxVar(heroCopy, "--parallax-y", travel * 0.03);
+      setParallaxVar(heroAside, "--parallax-y", travel * 0.12);
+      setParallaxVar(portraitCard, "--parallax-y", travel * 0.22);
+      setParallaxVar(spotlightCard, "--parallax-y", travel * 0.3);
+    }
+
+    if (footerPanel) {
+      const rect = footerPanel.getBoundingClientRect();
+      const progress = Math.max(-1, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+      const offset = (progress - 0.5) * 80;
+      setParallaxVar(footerHero, "--parallax-y", offset * -1);
+      setParallaxVar(footerBand, "--parallax-y", offset * 0.8);
+      setParallaxVar(footerColumns, "--parallax-y", offset * 1.15);
+      setParallaxVar(footerMark, "--parallax-mark-y", offset * 1.5);
+    }
+  }
+
+  function requestTick() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateParallax);
+  }
+
+  window.addEventListener("scroll", requestTick, { passive: true });
+  window.addEventListener("resize", requestTick);
+  updateParallax();
+}
+
+initParallax();
+
 function getFocusable(container) {
   return Array.from(container.querySelectorAll(
     'a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"]),iframe'
@@ -263,5 +264,3 @@ if (certLightbox) {
     if (e.target instanceof Element && e.target.hasAttribute("data-lightbox-close")) closeCertLightbox();
   });
 }
-
-

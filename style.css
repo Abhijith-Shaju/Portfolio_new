@@ -424,6 +424,31 @@ a {
   align-items: center;
 }
 
+.hero-copy,
+.hero-aside,
+.portrait-card,
+.spotlight-card,
+.footer-hero,
+.footer-band,
+.footer-columns,
+.footer-panel-mark {
+  will-change: transform;
+}
+
+.hero-copy,
+.hero-aside,
+.portrait-card,
+.spotlight-card,
+.footer-hero,
+.footer-band,
+.footer-columns {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+.footer-panel-mark {
+  transform: translate3d(0, var(--parallax-mark-y, 0px), 0);
+}
+
 .hero-heading {
   margin: 0;
   max-width: 14ch;
@@ -969,32 +994,6 @@ a {
   height: 100%;
   border: 0;
   background: #fff;
-}
-
-.typed-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 0.85em;
-  margin-left: 2px;
-  vertical-align: middle;
-  border-radius: 1px;
-  background: var(--accent);
-  animation: cursor-blink 0.9s step-end infinite;
-}
-
-.typed-cursor--paused {
-  animation: cursor-blink 0.5s step-end infinite;
-}
-
-@keyframes cursor-blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
 }
 
 .contact-card {
@@ -1755,5 +1754,16 @@ a {
     animation: none !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
+  }
+
+  .hero-copy,
+  .hero-aside,
+  .portrait-card,
+  .spotlight-card,
+  .footer-hero,
+  .footer-band,
+  .footer-columns,
+  .footer-panel-mark {
+    transform: none !important;
   }
 }
