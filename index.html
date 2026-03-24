@@ -102,7 +102,8 @@
             <div class="hero-copy">
               <p class="section-kicker">Portfolio / 2026</p>
               <h2 id="hero-heading" class="hero-heading">
-                Building clean software experiences across desktop, web, and AI-assisted products.
+                Building clean software experiences across
+                <span class="typed-phrase" aria-live="polite" aria-atomic="true"></span><span class="typed-cursor" aria-hidden="true"></span>
               </h2>
               <p class="hero-lede">
                 I'm Abhijith Shaju, a B.Tech Computer Science and Engineering student at Lovely Professional University with a bias for practical systems, reliable UX, and projects that solve specific problems well.
@@ -425,12 +426,48 @@
                   <p class="edu-school">Lovely Professional University, Punjab</p>
                 </div>
                 <div class="edu-badges">
-                  <span class="edu-badge">Current CGPA: 8.09</span>
-                  <span class="edu-badge">Systems + web focus</span>
+                  <span class="edu-badge">Aug 2023 - Present</span>
+                  <span class="edu-badge">CGPA: 8.13</span>
                 </div>
               </div>
               <p class="edu-desc">
                 Building a foundation across data structures, algorithms, operating systems, full-stack development, and system-level programming while staying active through personal projects and open-source work.
+              </p>
+            </div>
+          </article>
+          <article class="education-card">
+            <div class="edu-track" aria-hidden="true"></div>
+            <div class="edu-body">
+              <div class="edu-header">
+                <div>
+                  <h3 class="edu-degree">Intermediate</h3>
+                  <p class="edu-school">The Indian School, Isa Town, Bahrain</p>
+                </div>
+                <div class="edu-badges">
+                  <span class="edu-badge">Apr 2021 - Feb 2023</span>
+                  <span class="edu-badge">Percentage: 72%</span>
+                </div>
+              </div>
+              <p class="edu-desc">
+                Completed higher secondary education with a focus on core academic fundamentals that supported the transition into engineering studies.
+              </p>
+            </div>
+          </article>
+          <article class="education-card">
+            <div class="edu-track" aria-hidden="true"></div>
+            <div class="edu-body">
+              <div class="edu-header">
+                <div>
+                  <h3 class="edu-degree">Matriculation</h3>
+                  <p class="edu-school">The Indian School, Isa Town, Bahrain</p>
+                </div>
+                <div class="edu-badges">
+                  <span class="edu-badge">Apr 2020 - Mar 2021</span>
+                  <span class="edu-badge">Percentage: 70%</span>
+                </div>
+              </div>
+              <p class="edu-desc">
+                Built the academic base in mathematics, science, and problem solving that shaped my interest in computing and technical work.
               </p>
             </div>
           </article>
@@ -457,16 +494,75 @@
               <strong>linkedin.com/in/abhijith-shaju</strong>
             </a>
           </div>
+
+          <div class="contact-form-wrap">
+            <div class="contact-form-header">
+              <p class="contact-form-eyebrow">Direct message</p>
+              <h3 class="contact-form-title">Send me a note</h3>
+              <p class="contact-form-sub">I'll reply within a day or two.</p>
+            </div>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cf-name" class="form-label">Your name</label>
+                  <input id="cf-name" name="from_name" type="text" class="form-input" placeholder="Alex Johnson" required autocomplete="name" />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="cf-email" class="form-label">Your email</label>
+                  <input id="cf-email" name="reply_to" type="email" class="form-input" placeholder="alex@company.com" required autocomplete="email" />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="cf-subject" class="form-label">Subject</label>
+                <input id="cf-subject" name="subject" type="text" class="form-input" placeholder="Internship opportunity / Collaboration idea" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="cf-message" class="form-label">Message</label>
+                <textarea id="cf-message" name="message" class="form-textarea" placeholder="Tell me about the role, the project, or whatever's on your mind..." required rows="6"></textarea>
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="form-submit" id="form-submit-btn">
+                  <span class="form-submit__label">Send Message</span>
+                  <span class="form-submit__icon" aria-hidden="true">-&gt;</span>
+                </button>
+              </div>
+
+              <div class="form-toast" id="form-toast" role="status" aria-live="polite" hidden>
+                <span class="form-toast__icon" aria-hidden="true"></span>
+                <span class="form-toast__msg"></span>
+              </div>
+            </form>
+          </div>
         </section>
 
         <footer class="site-footer" role="contentinfo">
           <div class="footer-panel">
-            <div class="footer-intro">
-              <p class="footer-kicker">End Note</p>
-              <h2 class="footer-title">Built to feel focused, readable, and direct.</h2>
-              <p class="footer-copy">
-                This portfolio reflects how I like software to work: clear structure, practical decisions, and enough polish to make the experience feel considered.
-              </p>
+            <div class="footer-panel-mark" aria-hidden="true">AS</div>
+
+            <div class="footer-hero">
+              <div class="footer-hero-top">
+                <p class="footer-kicker">End Note</p>
+              </div>
+
+              <div class="footer-headline-row">
+                <h2 class="footer-title">Useful software. Clear thinking. No wasted motion.</h2>
+                <p class="footer-copy">
+                  I enjoy building products that balance systems discipline with interface clarity, whether that means desktop tools, full-stack apps, or practical AI-assisted workflows.
+                </p>
+              </div>
+            </div>
+
+            <div class="footer-band">
+              <a class="footer-mail" href="mailto:abhijithshaju2004@gmail.com">abhijithshaju2004@gmail.com</a>
+              <a class="footer-cta" href="#contact">Let's talk</a>
             </div>
 
             <div class="footer-columns">
@@ -474,25 +570,33 @@
                 <p class="footer-label">Navigate</p>
                 <div class="footer-links">
                   <a href="#about">About</a>
+                  <a href="#skills">Skills</a>
                   <a href="#projects">Projects</a>
-                  <a href="#contact">Contact</a>
+                  <a href="#education">Education</a>
                 </div>
               </div>
 
               <div class="footer-column">
-                <p class="footer-label">Connect</p>
+                <p class="footer-label">Profiles</p>
                 <div class="footer-links">
-                  <a href="mailto:abhijithshaju2004@gmail.com">Email</a>
                   <a href="https://github.com/Abhijith-Shaju" target="_blank" rel="noopener noreferrer">GitHub</a>
                   <a href="https://www.linkedin.com/in/abhijith-shaju/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a href="mailto:abhijithshaju2004@gmail.com">Email</a>
                 </div>
+              </div>
+
+              <div class="footer-column footer-column-note">
+                <p class="footer-label">Closing Thought</p>
+                <p class="footer-note">
+                  Thanks for reading through the work. If the way I build matches what you need, reach out.
+                </p>
               </div>
             </div>
           </div>
 
           <div class="footer-meta">
-            <p>Designed and built by <strong>Abhijith Shaju</strong></p>
-            <p class="footer-sub">Thanks for reading through the work. If something here feels relevant, let's talk.</p>
+            <p class="footer-signoff">Designed and built by <strong>Abhijith Shaju</strong></p>
+            <p class="footer-sub">Portfolio / 2026</p>
           </div>
         </footer>
       </main>
@@ -519,5 +623,7 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="emailJS.js"></script>
 </body>
 </html>

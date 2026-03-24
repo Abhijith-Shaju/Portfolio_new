@@ -1,237 +1,267 @@
 "use strict";
-
-const sections = Array.from(document.querySelectorAll(".section"));
-const sidebarLinks = Array.from(document.querySelectorAll(".sidebar-nav .nav-link"));
-const mobileLinks = Array.from(document.querySelectorAll(".mobile-nav .nav-link"));
-const allAnchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
-const hamburger = document.querySelector(".hamburger");
-const mobileNav = document.querySelector(".mobile-nav");
+ 
+// ── DOM refs ──────────────────────────────────────────────────────────────────
+const sections         = Array.from(document.querySelectorAll(".section"));
+const sidebarLinks     = Array.from(document.querySelectorAll(".sidebar-nav .nav-link"));
+const mobileLinks      = Array.from(document.querySelectorAll(".mobile-nav .nav-link"));
+const allAnchorLinks   = Array.from(document.querySelectorAll('a[href^="#"]'));
+const hamburger        = document.querySelector(".hamburger");
+const mobileNav        = document.querySelector(".mobile-nav");
 const certificateCards = Array.from(document.querySelectorAll(".certificate-card"));
-const certificateLightbox = document.querySelector(".certificate-lightbox");
-const certificateTitle = document.querySelector("#certificate-lightbox-title");
-const certificateFrame = document.querySelector(".certificate-lightbox__frame");
-const certificateDownload = document.querySelector(".certificate-lightbox__download");
-let previousBodyOverflow = "";
-
+const certLightbox     = document.querySelector(".certificate-lightbox");
+const certTitle        = document.querySelector("#certificate-lightbox-title");
+const certFrame        = document.querySelector(".certificate-lightbox__frame");
+const certDownload     = document.querySelector(".certificate-lightbox__download");
+ 
+let prevBodyOverflow  = "";
+let lightboxTriggerEl = null;
+ 
+// ── Mobile menu ───────────────────────────────────────────────────────────────
 function closeMobileMenu() {
-  if (!hamburger || !mobileNav) {
-    return;
-  }
-
+  if (!hamburger || !mobileNav) return;
   hamburger.classList.remove("open");
   hamburger.setAttribute("aria-expanded", "false");
   mobileNav.classList.remove("open");
   document.body.style.overflow = "";
 }
-
 function openMobileMenu() {
-  if (!hamburger || !mobileNav) {
-    return;
-  }
-
+  if (!hamburger || !mobileNav) return;
   hamburger.classList.add("open");
   hamburger.setAttribute("aria-expanded", "true");
   mobileNav.classList.add("open");
   document.body.style.overflow = "hidden";
 }
-
-function lockBodyScroll() {
-  previousBodyOverflow = document.body.style.overflow;
-  document.body.style.overflow = "hidden";
+ 
+// ── Scroll lock ───────────────────────────────────────────────────────────────
+function lockBodyScroll()   { prevBodyOverflow = document.body.style.overflow; document.body.style.overflow = "hidden"; }
+function unlockBodyScroll() { document.body.style.overflow = prevBodyOverflow; }
+ 
+// ── Active nav ────────────────────────────────────────────────────────────────
+function syncActiveNav(id) {
+  sidebarLinks.forEach(l => l.classList.toggle("active", l.dataset.section === id));
 }
-
-function unlockBodyScroll() {
-  document.body.style.overflow = previousBodyOverflow;
+function getOffset() {
+  const mh = document.querySelector(".mobile-header");
+  return mh && getComputedStyle(mh).display !== "none" ? mh.offsetHeight + 36 : 120;
 }
-
-function syncActiveNav(sectionId) {
-  sidebarLinks.forEach((link) => {
-    link.classList.toggle("active", link.dataset.section === sectionId);
-  });
-}
-
-function getScrollActivationOffset() {
-  const mobileHeader = document.querySelector(".mobile-header");
-  const hasMobileHeader = mobileHeader && getComputedStyle(mobileHeader).display !== "none";
-  return hasMobileHeader ? mobileHeader.offsetHeight + 36 : 120;
-}
-
 function updateActiveSection() {
-  if (!sections.length) {
-    return;
-  }
-
-  const activationLine = window.scrollY + getScrollActivationOffset();
-  let activeSection = sections[0];
-
-  sections.forEach((section) => {
-    if (section.offsetTop <= activationLine) {
-      activeSection = section;
-    }
-  });
-
-  syncActiveNav(activeSection.id);
+  if (!sections.length) return;
+  const line = window.scrollY + getOffset();
+  let active = sections[0];
+  sections.forEach(s => { if (s.offsetTop <= line) active = s; });
+  syncActiveNav(active.id);
 }
-
-allAnchorLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const targetId = link.getAttribute("href");
-
-    if (!targetId || targetId === "#") {
-      return;
-    }
-
-    const target = document.querySelector(targetId);
-
-    if (!target) {
-      return;
-    }
-
-    event.preventDefault();
-
-    const mobileHeader = document.querySelector(".mobile-header");
-    const hasMobileHeader = mobileHeader && getComputedStyle(mobileHeader).display !== "none";
-    const offset = hasMobileHeader ? mobileHeader.offsetHeight + 12 : 24;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top,
-      behavior: "smooth"
-    });
-
+ 
+// ── Smooth scroll ─────────────────────────────────────────────────────────────
+allAnchorLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    const id = link.getAttribute("href");
+    if (!id || id === "#") return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const mh = document.querySelector(".mobile-header");
+    const offset = mh && getComputedStyle(mh).display !== "none" ? mh.offsetHeight + 12 : 24;
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: "smooth" });
     closeMobileMenu();
   });
 });
-
+ 
 if (hamburger) {
   hamburger.addEventListener("click", () => {
-    const expanded = hamburger.getAttribute("aria-expanded") === "true";
-    if (expanded) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
+    hamburger.getAttribute("aria-expanded") === "true" ? closeMobileMenu() : openMobileMenu();
   });
 }
-
-mobileLinks.forEach((link) => {
-  link.addEventListener("click", closeMobileMenu);
+mobileLinks.forEach(l => l.addEventListener("click", closeMobileMenu));
+ 
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { closeMobileMenu(); closeCertLightbox(); }
 });
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeMobileMenu();
-    closeCertificateLightbox();
-  }
+document.addEventListener("click", e => {
+  if (!mobileNav?.classList.contains("open")) return;
+  if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
 });
-
-document.addEventListener("click", (event) => {
-  if (!mobileNav || !hamburger || !mobileNav.classList.contains("open")) {
-    return;
-  }
-
-  const target = event.target;
-  if (!(target instanceof Node)) {
-    return;
-  }
-
-  if (!mobileNav.contains(target) && !hamburger.contains(target)) {
-    closeMobileMenu();
-  }
-});
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.12,
-    rootMargin: "0px 0px -80px 0px"
-  }
+ 
+// ── Section reveal ────────────────────────────────────────────────────────────
+const revealObs = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+  { threshold: 0.12, rootMargin: "0px 0px -80px 0px" }
 );
-
-sections.forEach((section) => {
-  if (!section.classList.contains("visible")) {
-    revealObserver.observe(section);
-  }
-});
-
+sections.forEach(s => { if (!s.classList.contains("visible")) revealObs.observe(s); });
+ 
 window.addEventListener("scroll", updateActiveSection, { passive: true });
 window.addEventListener("resize", updateActiveSection);
 updateActiveSection();
-
-document.querySelectorAll(".project-card").forEach((card) => {
-  card.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") {
-      return;
-    }
-
-    const firstAction = card.querySelector(".project-links a");
-    if (!firstAction) {
-      return;
-    }
-
-    event.preventDefault();
-    firstAction.click();
+ 
+// ── Project keyboard nav ──────────────────────────────────────────────────────
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("keydown", e => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const a = card.querySelector(".project-links a");
+    if (a) { e.preventDefault(); a.click(); }
   });
 });
-
-function openCertificateLightbox(title, file) {
-  if (!certificateLightbox || !certificateTitle || !certificateFrame || !certificateDownload) {
+ 
+// ═══════════════════════════════════════════════════════════════════════════════
+// IMPROVEMENT 1 — Typed hero animation
+// ═══════════════════════════════════════════════════════════════════════════════
+ 
+const PHRASES = [
+  "desktop, web, and AI-assisted products.",
+  "native utilities that people rely on.",
+  "full-stack apps with clean interaction.",
+  "systems that solve specific problems well.",
+];
+ 
+function initTyped() {
+  const heading = document.querySelector("#hero-heading");
+  if (!heading) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // Static fallback for reduced motion
+    const typedEl = heading.querySelector(".typed-phrase");
+    if (typedEl) typedEl.textContent = PHRASES[0];
     return;
   }
-
-  certificateTitle.textContent = title;
-  certificateFrame.src = `${file}#view=FitH`;
-  certificateDownload.href = file;
-  certificateDownload.setAttribute("download", file.split("/").pop() || "certificate.pdf");
-  certificateLightbox.hidden = false;
-  certificateLightbox.setAttribute("aria-hidden", "false");
+ 
+  const typedEl  = heading.querySelector(".typed-phrase");
+  const cursorEl = heading.querySelector(".typed-cursor");
+  if (!typedEl || !cursorEl) return;
+ 
+  let pi = 0, ci = 0, deleting = false;
+ 
+  function tick() {
+    const phrase = PHRASES[pi];
+    if (!deleting) {
+      ci++;
+      typedEl.textContent = phrase.slice(0, ci);
+      if (ci === phrase.length) {
+        deleting = true;
+        cursorEl.classList.add("typed-cursor--paused");
+        setTimeout(() => {
+          cursorEl.classList.remove("typed-cursor--paused");
+          setTimeout(tick, 180);
+        }, 2200);
+        return;
+      }
+      setTimeout(tick, 52);
+    } else {
+      ci--;
+      typedEl.textContent = phrase.slice(0, ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % PHRASES.length;
+        setTimeout(tick, 380);
+        return;
+      }
+      setTimeout(tick, 22);
+    }
+  }
+  setTimeout(tick, 800);
+}
+ 
+initTyped();
+ 
+// ═══════════════════════════════════════════════════════════════════════════════
+// IMPROVEMENT 2 — Count-up metrics
+// ═══════════════════════════════════════════════════════════════════════════════
+ 
+function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+ 
+function animateCount(el, target, prefix, suffix, dur) {
+  const start = performance.now();
+  (function frame(now) {
+    const p = Math.min((now - start) / dur, 1);
+    el.textContent = prefix + Math.round(easeOut(p) * target) + suffix;
+    if (p < 1) requestAnimationFrame(frame);
+  })(start);
+}
+ 
+function initCountUp() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cards = document.querySelectorAll(".metric-card");
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      obs.unobserve(entry.target);
+      const el  = entry.target.querySelector(".metric-value");
+      if (!el) return;
+      const raw = el.textContent.trim();
+ 
+      const numM = raw.match(/^(\d+)(\+?)$/);
+      if (numM) { animateCount(el, +numM[1], "", numM[2] || "", 1400); return; }
+ 
+      const topM = raw.match(/^(Top\s+)(\d+)$/i);
+      if (topM) { animateCount(el, +topM[2], topM[1], "", 1400); }
+    });
+  }, { threshold: 0.7 });
+  cards.forEach(c => obs.observe(c));
+}
+ 
+initCountUp();
+ 
+// ═══════════════════════════════════════════════════════════════════════════════
+// IMPROVEMENT 3 — Lightbox with focus trap + focus restoration
+// ═══════════════════════════════════════════════════════════════════════════════
+ 
+function getFocusable(container) {
+  return Array.from(container.querySelectorAll(
+    'a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"]),iframe'
+  )).filter(el => !el.hasAttribute("hidden") && el.offsetParent !== null);
+}
+ 
+function trapFocus(e) {
+  if (!certLightbox || certLightbox.hidden) return;
+  const dialog = certLightbox.querySelector(".certificate-lightbox__dialog");
+  if (!dialog || e.key !== "Tab") return;
+  const focusable = getFocusable(dialog);
+  if (!focusable.length) return;
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+ 
+function openCertLightbox(title, file, trigger) {
+  if (!certLightbox || !certTitle || !certFrame || !certDownload) return;
+  lightboxTriggerEl = trigger || null;
+  certTitle.textContent = title;
+  certFrame.src         = `${file}#view=FitH`;
+  certDownload.href     = file;
+  certDownload.setAttribute("download", file.split("/").pop() || "certificate.pdf");
+  certLightbox.hidden = false;
+  certLightbox.setAttribute("aria-hidden", "false");
   lockBodyScroll();
+  // Move focus into dialog
+  const closeBtn = certLightbox.querySelector(".certificate-lightbox__close");
+  requestAnimationFrame(() => closeBtn?.focus());
+  document.addEventListener("keydown", trapFocus);
 }
-
-function closeCertificateLightbox() {
-  if (!certificateLightbox || !certificateFrame) {
-    return;
-  }
-
-  if (certificateLightbox.hidden) {
-    return;
-  }
-
-  certificateLightbox.hidden = true;
-  certificateLightbox.setAttribute("aria-hidden", "true");
-  certificateFrame.src = "";
+ 
+function closeCertLightbox() {
+  if (!certLightbox?.hidden === false || certLightbox?.hidden) return;
+  certLightbox.hidden = true;
+  certLightbox.setAttribute("aria-hidden", "true");
+  certFrame.src = "";
   unlockBodyScroll();
+  document.removeEventListener("keydown", trapFocus);
+  lightboxTriggerEl?.focus();
+  lightboxTriggerEl = null;
 }
-
-certificateCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const title = card.dataset.certificateTitle;
-    const file = card.dataset.certificateFile;
-
-    if (!title || !file) {
-      return;
-    }
-
-    openCertificateLightbox(title, file);
+ 
+certificateCards.forEach(card => {
+  const open = () => {
+    const t = card.dataset.certificateTitle, f = card.dataset.certificateFile;
+    if (t && f) openCertLightbox(t, f, card);
+  };
+  card.addEventListener("click", open);
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
   });
 });
-
-if (certificateLightbox) {
-  certificateLightbox.addEventListener("click", (event) => {
-    const target = event.target;
-
-    if (!(target instanceof Element)) {
-      return;
-    }
-
-    if (target.hasAttribute("data-lightbox-close")) {
-      closeCertificateLightbox();
-    }
+ 
+if (certLightbox) {
+  certLightbox.addEventListener("click", e => {
+    if (e.target instanceof Element && e.target.hasAttribute("data-lightbox-close")) closeCertLightbox();
   });
 }
+
+
